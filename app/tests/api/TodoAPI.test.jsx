@@ -51,5 +51,45 @@ describe('TodoAPI', () => {
 
       expect(actualTodos).toEqual(todos);
     });
+
+  });
+
+  describe ('filteredTodos', () => {
+    var todos = [{
+      id: 1,
+      text: 'some text here',
+      completed: true
+    }, {
+      id: 2,
+      text: 'Other text here',
+      completed: false
+    }, {
+      id: 3,
+      text: 'some text here',
+      completed: true
+    }];
+
+    it ('shold return all items if showCOmpleted is true', () => {
+      var filteredTodos = TodoAPI.filteredTodos(todos, true, '');
+      expect(filteredTodos.length).toBe(3);
+    });
+
+    it ('shold return non completed todos when showCOmpleted is false', () => {
+      var filteredTodos = TodoAPI.filteredTodos(todos, false, '');
+      expect(filteredTodos.length).toBe(1);
+    });
+
+    it ('shold sort by COmpleted status', () => {
+      var filteredTodos = TodoAPI.filteredTodos(todos, true, '');
+      expect(filteredTodos[0].completed).toBe(false);
+    });
+    it ('shold filter todos by search text', () => {
+      var filteredTodos = TodoAPI.filteredTodos(todos, true, 'some');
+      expect(filteredTodos.length).toBe(2);
+    });
+    it ('shold return all todos if search text is empty', () => {
+      var filteredTodos = TodoAPI.filteredTodos(todos, true, '');
+      expect(filteredTodos.length).toBe(3);
+    });
   });
 });
