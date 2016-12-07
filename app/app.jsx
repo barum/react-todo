@@ -13,9 +13,9 @@ store.subscribe(() => {
   console.log('new state ', store.getState());
 });
 
-store.dispatch(action.addTodo('Clean the yard'));
-store.dispatch(action.setSearchText ('yard'));
-store.dispatch(action.toggleShowCompleted());
+// store.dispatch(action.addTodo('Clean the yard'));
+// store.dispatch(action.setSearchText ('yard'));
+// store.dispatch(action.toggleShowCompleted());
 
 // Load foundation
 $(document).foundation();
