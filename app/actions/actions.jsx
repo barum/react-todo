@@ -27,3 +27,10 @@ export var toggleTodo = (id) => {
   };
 
 };
+
+export var addTodos = (todos) => {
+  return {
+    type: 'ADD_TODOS',
+    todos
+  };
+};
